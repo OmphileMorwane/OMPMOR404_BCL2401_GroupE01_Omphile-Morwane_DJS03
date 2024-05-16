@@ -25,6 +25,16 @@ function createBookPreview(book) {
         return element;
     }
 
+    // Function to render books
+  function renderBooks(bookList) {
+    const fragment = document.createDocumentFragment();
+    for (const book of bookList) {
+      const element = createBookPreview(book);
+      fragment.appendChild(element);
+    }
+    return fragment;
+  }
+
 
     
 document.querySelector('[data-list-items]').appendChild(starting)
