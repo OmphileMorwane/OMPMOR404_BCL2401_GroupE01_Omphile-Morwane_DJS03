@@ -35,6 +35,25 @@ function createBookPreview(book) {
     return fragment;
   }
 
+  // Function to update the book list
+function updateBookList(bookList) {
+    const newList = renderBooks(bookList.slice(0, BOOKS_PER_PAGE));
+    const listContainer = document.querySelector("[data-list-items]");
+    listContainer.innerHTML = "";
+    listContainer.appendChild(newList);
+  
+    const remaining = Math.max(bookList.length - page * BOOKS_PER_PAGE, 0);
+    const listButton = document.querySelector("[data-list-button]");
+    listButton.disabled = remaining <= 0;
+    listButton.innerHTML = `
+          <span>Show more</span>
+          <span class="list__remaining"> (${remaining})</span>
+      `;
+  }
+  
+  // Initial rendering of books
+  updateBookList(matches);
+
 
     
 document.querySelector('[data-list-items]').appendChild(starting)
