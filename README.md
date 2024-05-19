@@ -24,7 +24,7 @@ The "Book Connect" project provides an opportunity for students to refine a full
 5. **Documentation and Comments**: Throughout the refactoring process, document your code. Provide comments that explain the purpose and functionality of objects and functions.
 6. **Adherence to Styleguides**: Ensure your code follows JavaScript and HTML coding standards and best practices for readability and maintainability.
 
-#### Discussion and Reflection
+## Discussion and Reflections
 
 After completing the tasks, prepare a brief presentation for your coaching group on the following:
 - The rationale behind the refactoring decisions made, including the choice of objects and functions.
@@ -32,8 +32,13 @@ After completing the tasks, prepare a brief presentation for your coaching group
 - Any challenges faced during the refactoring process and how they were overcome.
 - Reflections on how this exercise has deepened your understanding of JavaScript programming concepts.
 
-#### Submission Guidelines
+## Discussion and Reflections
 
-Submit the refactored version of the "Book Connect" application, including all HTML, CSS, and JavaScript files. Ensure that your code is well-documented and adheres to the specified Styleguides. Include a written report covering the discussion and reflection points outlined above.
+ The code has been organized into modular functions such as createBookPreview, renderBooks, updateBookList, renderGenres, renderAuthors, and event listeners. This modularization promotes separation of concerns, allowing each function to handle a specific task. For example, createBookPreview is responsible for generating the HTML for a single book preview element, while renderBooks is responsible for rendering a list of book previews. This approach makes the codebase easier to understand, debug, and modify.By encapsulating functionality into reusable functions, the code achieves a higher level of abstraction. For instance, the createBookPreview function abstracts away the details of generating HTML for a book preview, allowing the caller to simply provide a book object and receive the corresponding HTML element. Similarly, renderBooks abstracts away the process of rendering a list of book previews, making the code more readable and maintainable.
 
-Make sure to submit your project to the LMS on the DJS03 Project Tab.
+## Challenges faced
+
+I was not really sure what I was supposed to do in this project. I used a lot of media and help from my peers to see it through, but I left still confused. I understand the conceptt of abstraction, I understand what it means and what it supposed to achieve, I am just struggling with applying it. I added a function to create a book preview element. and then my search button stopped working, I then had to debug my code to see where the problem was until I got to ake it work again.
+
+## Reflections 
+I think I have a better understanding of abstraction, but I still need to practice more to get better at it. I think I need to read more content so that I cna be able to apply it.
