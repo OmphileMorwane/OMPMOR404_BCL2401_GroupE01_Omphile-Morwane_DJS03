@@ -26,14 +26,6 @@ The "Book Connect" project provides an opportunity for students to refine a full
 
 ## Discussion and Reflections
 
-After completing the tasks, prepare a brief presentation for your coaching group on the following:
-- The rationale behind the refactoring decisions made, including the choice of objects and functions.
-- How abstraction has made the code more maintainable and extendable.
-- Any challenges faced during the refactoring process and how they were overcome.
-- Reflections on how this exercise has deepened your understanding of JavaScript programming concepts.
-
-## Discussion and Reflections
-
  The code has been organized into modular functions such as createBookPreview, renderBooks, updateBookList, renderGenres, renderAuthors, and event listeners. This modularization promotes separation of concerns, allowing each function to handle a specific task. For example, createBookPreview is responsible for generating the HTML for a single book preview element, while renderBooks is responsible for rendering a list of book previews. This approach makes the codebase easier to understand, debug, and modify.By encapsulating functionality into reusable functions, the code achieves a higher level of abstraction. For instance, the createBookPreview function abstracts away the details of generating HTML for a book preview, allowing the caller to simply provide a book object and receive the corresponding HTML element. Similarly, renderBooks abstracts away the process of rendering a list of book previews, making the code more readable and maintainable.
 
 ## Challenges faced
