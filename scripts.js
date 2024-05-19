@@ -1,8 +1,10 @@
+// Importing data and constants from data.js module
 import { books, authors, genres, BOOKS_PER_PAGE } from "./data.js";
-
+// Initialize page number and set matches to all books
 let page = 1;
 let matches = books;
 
+// Create a document fragment for initial rendering
 const starting = document.createDocumentFragment();
 //Function to create book preview element
 function createBookPreview(book) {
@@ -42,6 +44,7 @@ function updateBookList(bookList) {
   listContainer.innerHTML = "";
   listContainer.appendChild(newList);
 
+ // Calculate the remaining books and update the "Show more" button accordingly
   const remaining = Math.max(bookList.length - page * BOOKS_PER_PAGE, 0);
   const listButton = document.querySelector("[data-list-button]");
   listButton.disabled = remaining <= 0;
@@ -54,12 +57,15 @@ function updateBookList(bookList) {
 // Initial rendering of books
 updateBookList(matches);
 
+
+// Create a document fragment for genre filter options
 const genreHtml = document.createDocumentFragment();
 const firstGenreElement = document.createElement("option");
 firstGenreElement.value = "any";
 firstGenreElement.innerText = "All Genres";
 genreHtml.appendChild(firstGenreElement);
 
+// Iterate over genres and create option elements
 for (const [id, name] of Object.entries(genres)) {
   const element = document.createElement("option");
   element.value = id;
@@ -100,7 +106,8 @@ document.documentElement.style.setProperty(
     darkTheme ? "10, 10, 20": "255, 255, 255"
 );
 
-//Event listeners
+
+// Event listener for theme settings form submission
 document
   .querySelector("[data-settings-form]")
   .addEventListener("submit", (event) => {
@@ -121,12 +128,14 @@ document
     document.querySelector("[data-settings-overlay]").open = false;
   });
 
+// Event listener for search form submission
 document
   .querySelector("[data-search-form]")
   .addEventListener("submit", (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const filters = Object.fromEntries(formData);
+
     const result = books.filter((book) => {
       const genreMatch =
         filters.genre === "any" || book.genres.includes(filters.genre);
@@ -142,12 +151,13 @@ document
     matches = result;
     updateBookList(matches);
 
+// Show or hide the message based on the filter results
     const messageElement = document.querySelector("[data-list-message]");
     messageElement.classList.toggle("list__message_show", result.length === 0);
 
     document.querySelector("[data-search-overlay]").open = false;
   });
-
+// Event listener for "Show more" button click
 document.querySelector("[data-list-button]").addEventListener("click", () => {
   const startIndex = page * BOOKS_PER_PAGE;
   const endIndex = (page + 1) * BOOKS_PER_PAGE;
@@ -156,6 +166,7 @@ document.querySelector("[data-list-button]").addEventListener("click", () => {
   page += 1;
 });
 
+// Event listener for clicking on a book preview
 document
   .querySelector("[data-list-items]")
   .addEventListener("click", (event) => {
@@ -185,7 +196,7 @@ document
 document.querySelector("[data-search-cancel]").addEventListener("click", () => {
   document.querySelector("[data-search-overlay]").open = false;
 });
-
+// Event listener for clicking on the settings overlay cancel button
 document
   .querySelector("[data-settings-cancel]")
   .addEventListener("click", () => {
